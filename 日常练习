@@ -99,7 +99,17 @@ int main()
 	return 0;
 
 }
+
+
+二进制码换算
+只要是整数，内存中存的都是2进制补码            原码----------->反码--------->补码
+正数的原码，反码，补码是相同的             直接按照正负   原码符号位不变   反码+1
+负数在内存中存的是补码                  写出的2进制序列  其他位取反得到
 （~按位取反）2进制位（去补码）            原码（取反）=反码（+1）=补码
+-2
+10000000000000000000000000000010---》原码
+11111111111111111111111111111101---》反码
+11111111111111111111111111111110---》补码
 int main()
 {
 	int a=0;          //00000000000000000000000000000000（第一位为符号位，0为正，1为负）
@@ -150,3 +160,86 @@ int main()
 	return 0;
 
 }
+typedef 自定义函数名称 （重命名、改名卡）
+typedef unsigned int u_int//将无符号定义自定义为u_int
+unsigned int num=20;//无符号定义，即不分正负，全部为正
+
+
+（循环代码） 
+#include<stdio.h>
+int test()
+{
+	int i=1;
+	i++;
+	printf("i=%d\n",i);//test()输出打印i=+1=2并另起一行
+	
+}
+int main()
+{
+	
+	int a=0;
+	while(a<5)
+	{
+		test();//打印i=3并另起一行
+		a++;//a+1,继续循环直至>=5跳出循环
+	}
+	return 0;
+} 
+输出：
+2
+2
+2
+2
+2
+
+
+
+static  修饰变量与修饰函数同理
+static修饰局部变量会使局部变量生命周期变长；
+ststic修饰全局变量会改变变量的作用域--让静态的全局变量只能在自己所在的源文件内部使用；
+出了此源文件将无法再使用。
+
+（以上代码为例）
+#include<stdio.h>
+int test()
+{
+	static int i=1;//static定义一个静态局部变量，
+	              //本来当第一次输出i=2后，i就应被销毁，将i重新赋值1，
+		      //但添加static后，使i的生命周期边长，不会直接销毁。
+	//i第一次是1，输出1++=2，后i不会被销毁；第二次直接引用i=2，输出变成2++=3；第三次输出为3;第四次为4...
+	i++;
+	printf("i=%d\n",i);
+	
+}
+输出：
+2
+3
+4
+5
+6
+
+#define可以替换自定义函数，如下
+int MAX(int x,int y)
+{
+	if(x>y)
+		return x;
+	else 
+		return y;
+}
+可替换为
+#define MAX(x,y)(x>y?x:y);
+例子 
+  #define 宏定义                              自定义函数
+#include<stdio.h>                          int MAX(intx,inty)
+                                           {
+#define MAX(x,y)(x>y?x:y);                      if(x>y)
+int main()                                    return x;
+{                                             else
+	int a=10,b=20;                          return y;
+	int max=MAX(a,b);                    }   
+	printf("max=%d\n",max);             int main()
+	return 0;                          {
+                                                 int a=10,b=20;
+}                                                int max=MAX(a,b);
+                                           printf("max=%d\n",max);
+				             return 0; }
