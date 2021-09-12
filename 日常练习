@@ -1,0 +1,152 @@
+#include<stdio.h>
+int add(int x,int y)//没有分号，定义一个减法函数
+{
+	int z=x-y;
+	return z;
+}
+int main()
+{
+	int a=100,b=200,c=300,d=400,e,f;
+	e=add(b,a);
+	f=add(c,d);
+	printf("%d\n%d\n",e,f);
+	return 0;
+  （计算字符串空间）
+  #include <stdio.h>
+int main()
+{
+	char arr[4]={"csgd"};
+	printf("%d\n",sizeof(arr));//计算数组所占空间（比特）
+	return 0;
+
+}
+
+（显示字符串）
+#include<stdio.h>
+int main()
+{
+	char arr[]={"c:\\x86\\test\\user"};
+	printf("%s\n", arr);
+	return 0;
+}
+（计算字符串长度）
+#include<stdio.h>
+int main()
+{
+	
+	printf("%d\n",strlen("c:\\x86\\test\\user") );
+	return 0;
+}
+（ab比较大小）
+#include<stdio.h>
+int main()
+{
+	int a,b;
+	scanf("%d%d",&a,&b);
+	if(a>b)
+		printf("a\n");
+	else 
+		printf("b\n");
+	return 0;
+}
+（比较ab大小并输出整型数字）
+#include<stdio.h>
+int main()
+{
+	int a=10,b=11;
+	
+	if(a>b)
+		printf("较大值是：%d\n",a);
+	else 
+		printf("较大值是：%d\n",b);
+	return 0;
+}
+（创建一个比较函数比较数字大小并输出）
+#include<stdio.h>
+int MAX(int x,int y)
+{
+	if (x>y)
+		return x;
+	else
+		return y;
+		
+}
+int main()
+{
+	int a,b,max;
+	scanf("%d%d",&a,&b);
+	
+	max=MAX(a,b);
+	printf("较大值是：%d\n",max);
+	return 0;
+
+	return 0;
+}
+（简单的循环）
+#include<stdio.h>
+int main()
+{
+	
+	int i=0;
+	
+	while(i<10000)
+	{
+		printf("继续努力\n已学习：%d天\n",i);
+	i++;
+	}
+	if(i>=10000)
+		printf("成功在向你招手\n");
+	return 0;
+
+}
+（~按位取反）2进制位（去补码）            原码（取反）=反码（+1）=补码
+int main()
+{
+	int a=0;          //00000000000000000000000000000000（第一位为符号位，0为正，1为负）
+	int b=~a;         //11111111111111111111111111111111(负数在内存中存的是这个数的补码)---反码=补码-1，原码=反码（取反）
+  //补码-1=反码=11111111111111111111111111111110--反码取反=原码=100000000000000000000000000000001（符号位不变）
+	printf("%d\n",b); //10000000000000000000000000000001（打印的是原码）（转换成10进制=-1）
+	
+	
+	return 0;
+
+}
+（逻辑与和逻辑或）&&  ||
+int main()
+{
+	//int a=1;//000000000000000000000000000001
+	//int b=~a;//111111111111111111111111111110-1
+	//printf("%d\n",b);//1111111111111111111111111101--取反
+	//                 //1000000000000000000000000010原码
+	//
+	//return 0;
+int a=1,b=2;//&&==非0----真；0----假；  ||=有一个非0即为真，两个都为0才为假
+int c=a&&b;//1（真）与2（真）为真  &&与运算  ||或运算 
+printf("%d\n",c);//输出1（真）输出0（假）
+return 0;
+
+三目操作符/条件操作符
+（sep1? sep2 sep3）如果sep1为真，则zep2为真；
+                   如果seo1为假，则zep3为真。
+#include<stdio.h>
+int main()
+{
+	int a=100,b=99;
+	int max;
+	max=(a>b?a:b);//如果a>b为真，则a为真，将a赋值给max；
+	              //如果a>b为假，则b为真，将b赋值给max。
+	printf("%d\n",max);
+	return 0;
+  练习
+  #include<stdio.h>
+int main()
+{
+	int a,b;
+	int max;
+	scanf("%d%d",&a,&b);
+	max=(a>b?a:b);//如果a>b为真，则a为真，输出a；
+	              //如果a>b为假，则b为真，输出b。
+	printf("%d\n",max);
+	return 0;
+
+}
