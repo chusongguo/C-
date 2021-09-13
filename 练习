@@ -92,3 +92,44 @@ x          //*z='x'后，a的数据从‘w’变为‘x’
 
 32位系统一个指针变量*p只占用32bit=4字节byte空间
 64位系统一个指针变量*p占用64bit=8字节byte空间
+
+
+ int main()
+
+	{
+		double a=3.14;
+		double*p=&a;
+		printf("%lf\n",a);//输出a的内容
+		*p=5;//*p解操作符，*p相当于直接修改a
+		printf("%lf\n",a);//输出修改后a的内容
+		return 0;
+	}
+
+
+
+struct 结构体类型变量
+//人，书等复杂对象需要用结构体类型描述
+//名字，性别等等
+struct book
+{
+	char name[20];//书名：c语言
+	//利用结构体类型创建一个复杂结构变量
+int jiage;//价格
+};
+int main()
+{
+	struct book b1 ={"c语言",55}; 
+
+  struct book* z=&b1;
+printf("%s\n",(*z).name);
+ printf("%d\n",(*z).jiage);//同样可以利用指针变量代表相应函数；
+printf("%s\n",z->name)；
+printf("%d\n",z->jiage);// ' .'与'->'性质类似
+
+	printf("书名：%s\n",b1.name);//输出 书名c语言
+	printf("价格：%d\n",b1.jiage);//输出 价格 55
+                b1.jiage=30;                            // 可以重新赋值变量
+	printf("修改后的价格：%d\n",b1.jiage);//输出 修改后的价格：30
+	return 0;
+
+
