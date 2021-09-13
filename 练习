@@ -116,6 +116,7 @@ struct book
 	//利用结构体类型创建一个复杂结构变量
 int jiage;//价格
 };
+#include <string.h>   //调用strcpy的库函数
 int main()
 {
 	struct book b1 ={"c语言",55}; 
@@ -128,7 +129,14 @@ printf("%d\n",z->jiage);// ' .'与'->'性质类似
 
 	printf("书名：%s\n",b1.name);//输出 书名c语言
 	printf("价格：%d\n",b1.jiage);//输出 价格 55
-                b1.jiage=30;                            // 可以重新赋值变量
+	strcpy (b1.name,“c++”);            //修改字符变量
+                b1.jiage=30;             // 可以重新赋值变量
+	printf("修改后的价格：%d\n",b1.jiage);//输出 修改后的价格：30
+	return 0;
+
+
+{{{{strcpy (b1.name,"c++");     strcpy 字符串拷贝//用于修改书名  （ 库函数  需要调用#include<string.h>}}}
+                printf("修改后的书名：%s\n",b1.name);
 	printf("修改后的价格：%d\n",b1.jiage);//输出 修改后的价格：30
 	return 0;
 
