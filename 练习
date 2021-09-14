@@ -140,4 +140,143 @@ printf("%d\n",z->jiage);// ' .'与'->'性质类似
 	printf("修改后的价格：%d\n",b1.jiage);//输出 修改后的价格：30
 	return 0;
 
+（选择语句）
+if
+else if
+else if
+else
+
+#include <stdio.h>
+int main()
+{
+	int age=66;
+	if(age<18)
+		printf("未成年\n");
+	else if(age>=18&&age<28)
+		printf("青年\n");
+	else if(age>=28&&age<60)
+		printf("中年\n");
+	else
+		printf("老年\n");
+	return 0;
+
+}
+与下式等价
+#include <stdio.h>
+int main()
+{
+	int age=66;
+	if(age<18)
+		printf("未成年\n");
+              else
+                {
+                if(age>=18&&age<28)
+		printf("青年\n");
+	else if(age>=28&&age<60)
+		printf("中年\n");
+	else
+		printf("老年\n");
+                 }
+	return 0;
+	}
+
+int main()
+{
+	int a=0,b=2;
+	if(a==1)
+		if(b==2)
+		printf("haha\n");
+		else               //else只与距离最近的if相匹配
+	
+		printf("hehe\n");
+	return 0;
+加入{}限制区间即可
+int main()
+{
+	int a=0,b=2;
+	if(a==1)
+		{if(b==2)
+		printf("haha\n");
+		else              
+	
+		printf("hehe\n");
+}
+	return 0;
+}
+（注意=赋值 与 ==判断相等）
+{
+	int a=3;
+if(a=4)     //一个=是赋值，==两个等号才是判断相等
+	{printf("hehe\n");
+}
+return 0;
+}
+{
+	int a=3;
+if(4 ==a)    //先写常量能有效避免==判断相等符写成=的错误
+	        //4 =a是将a赋值给4，是不成立的，会报错
+	{printf("hehe\n");
+}
+return 0;
+}
+（输出100以内所有奇数）
+（1）
+{
+	int a=1;
+	
+	while(a<=100)
+	{
+		if(a%2==1)      //（a%2 !=0）a模2不等于0
+		printf("%d ",a);
+	
+		a++;
+	}
+	return 0;
+}
+（2）
+{
+	int a=1;
+	
+	while(a<=100)
+	{
+		printf("%d ",i);
+                                i+=2;   //输出1，1+2，3+2，5+2。。。。
+	}
+	return 0;
+}
+
+
+
+（switch语句）整型表达式
+{
+	int a;
+	scanf("%d",&a);
+	switch(a)//（选择并判断a满足语句内那个条件）
+	{
+	case 1 :
+			printf("星期一\n");
+			break;     //中断，跳出   如果满足case 1将输出打印星期一并跳出语句，不满足则继续执行
+	case 2:
+			printf("星期二\n");
+			break;  //中断，跳出   如果满足case 2将输出打印星期二并跳出语句，不满足则继续执行
+	case 3:			
+			printf("星期三\n");
+			break;  //中断，跳出   如果满足case 3将输出打印星期三并跳出语句，不满足则继续执行
+	case 4:
+			printf("星期四\n");
+			break;  //中断，跳出   如果满足case 4将输出打印星期四并跳出语句，不满足则继续执行
+	case 5:
+			printf("星期五\n");
+			break;  //中断，跳出   如果满足case 5将输出打印星期五并跳出语句，不满足则继续执行
+	case 6:
+			printf("星期六\n");
+			break;  //中断，跳出   如果满足case 6将输出打印星期六并跳出语句，不满足则继续执行
+	case 7:
+			printf("星期日\n");
+			break;  //中断，跳出   如果满足case 7将输出打印星期日并跳出语句，不满足则继续执行
+        default:   //如果输入数字不在区间范围，则会输出以下反馈内容，即“输入错误”
+		printf("输入错误\n");
+	}
+	return 0;
+}
 
